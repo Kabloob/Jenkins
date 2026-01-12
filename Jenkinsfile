@@ -8,10 +8,12 @@ pipeline {
 
     stages {
         stage('Instalar dependencias') {
-            steps {
-                sh 'npm install'
-            }
-        }
+    steps {
+        // Instalamos la librería faltante usando el usuario root
+        sh 'apt-get update && apt-get install -y libatomic1'
+        sh 'npm install'
+    }
+}
 
         stage('Ejecutar tests') {
             steps {
