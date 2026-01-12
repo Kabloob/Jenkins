@@ -5,7 +5,7 @@ const app = require('../index'); // Necesitamos exportar 'app' desde index.js
 describe('API de usuarios', () => {
 const testUser = { id: 'test123', name: 'Test User', email: 'test@example.com' };
 
-afterA11(() => {
+afterAll(() => {
 // Limpieza: eliminar usuario de prueba si existe
 const users = JSON.parse(fs.readFileSync('./users.json', 'utf8'));
 const filtered = users.filter(u => u.id !== testUser.id);
