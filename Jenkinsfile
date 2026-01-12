@@ -16,10 +16,12 @@ pipeline {
 }
 
         stage('Ejecutar tests') {
-            steps {
-                sh 'npm test'
-            }
-        }
+    steps {
+        // Otorgamos permisos de ejecución a todos los binarios de node_modules
+        sh 'chmod +x ./node_modules/.bin/jest'
+        sh 'npm test'
+    }
+}
 
         stage('Construir Imagen Docker') {
             when {
